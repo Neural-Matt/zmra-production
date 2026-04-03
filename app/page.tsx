@@ -30,10 +30,12 @@ export default function Home() {
     fetchMedicines();
   }, []);
 
-  const filteredMedicines = medicines.filter(med =>
-    med.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    med.category.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredMedicines = Array.isArray(medicines) 
+    ? medicines.filter(med =>
+        med.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        med.category.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    : [];
 
   return (
     <main className="min-h-screen bg-gray-50">
