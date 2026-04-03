@@ -1,0 +1,1367 @@
+{
+  "medicines": [
+    {
+      "id": "1773588735332-4r5fdjhy",
+      "brandName": "Panadol",
+      "genericName": "Statin",
+      "druginventoryID": "1773588735332-4r5fdjhy",
+      "therapeuticCategory": "Antihistamines",
+      "drugClass": "Analgesic",
+      "dosageForm": "Capsule",
+      "strength": "290mg",
+      "routeOfAdministration": "Oral",
+      "manufacturer": "Novartis",
+      "manufacturerCountry": "India",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735332-4r5fdjhy-1",
+          "manufacturingDate": "2025-07-02",
+          "expiryDate": "2027-07-02",
+          "quantity": 5891
+        }
+      ]
+    },
+    {
+      "id": "1773588735342-0h8gqlst",
+      "brandName": "Aspirin",
+      "genericName": "Beta-lactam antibiotic",
+      "druginventoryID": "1773588735342-0h8gqlst",
+      "therapeuticCategory": "Analgesics",
+      "drugClass": "Antibiotic",
+      "dosageForm": "Cream",
+      "strength": "338mg",
+      "routeOfAdministration": "Oral",
+      "manufacturer": "GlaxoSmithKline",
+      "manufacturerCountry": "UK",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735342-0h8gqlst-1",
+          "manufacturingDate": "2025-09-13",
+          "expiryDate": "2027-09-13",
+          "quantity": 2100
+        }
+      ]
+    },
+    {
+      "id": "1773588735342-t9px43qk",
+      "brandName": "Ibuprofen",
+      "genericName": "Acetylsalicylic Acid",
+      "druginventoryID": "1773588735342-t9px43qk",
+      "therapeuticCategory": "Antibiotics",
+      "drugClass": "Antihypertensive",
+      "dosageForm": "Solution",
+      "strength": "686mg",
+      "routeOfAdministration": "Inhalation",
+      "manufacturer": "GlaxoSmithKline",
+      "manufacturerCountry": "Germany",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735342-t9px43qk-1",
+          "manufacturingDate": "2025-05-12",
+          "expiryDate": "2027-05-12",
+          "quantity": 4590
+        }
+      ]
+    },
+    {
+      "id": "1773588735342-n6mjpq4f",
+      "brandName": "Amoxicillin",
+      "genericName": "Beta-lactam antibiotic",
+      "druginventoryID": "1773588735342-n6mjpq4f",
+      "therapeuticCategory": "Antihistamines",
+      "drugClass": "Anti-inflammatory",
+      "dosageForm": "Cream",
+      "strength": "569mg",
+      "routeOfAdministration": "Inhalation",
+      "manufacturer": "Novartis",
+      "manufacturerCountry": "Japan",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735342-n6mjpq4f-1",
+          "manufacturingDate": "2026-01-25",
+          "expiryDate": "2028-01-25",
+          "quantity": 2955
+        }
+      ]
+    },
+    {
+      "id": "1773588735342-lgladus3",
+      "brandName": "Ciprofloxacin",
+      "genericName": "Paracetamol",
+      "druginventoryID": "1773588735342-lgladus3",
+      "therapeuticCategory": "Antibiotics",
+      "drugClass": "Antihistamine",
+      "dosageForm": "Cream",
+      "strength": "690mg",
+      "routeOfAdministration": "Intravenous",
+      "manufacturer": "Johnson & Johnson",
+      "manufacturerCountry": "Japan",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735342-lgladus3-1",
+          "manufacturingDate": "2025-07-25",
+          "expiryDate": "2027-07-25",
+          "quantity": 3426
+        }
+      ]
+    },
+    {
+      "id": "1773588735342-pqktr577",
+      "brandName": "Metformin",
+      "genericName": "Isobutylphenylpropionic Acid",
+      "druginventoryID": "1773588735342-pqktr577",
+      "therapeuticCategory": "Antihistamines",
+      "drugClass": "Antibiotic",
+      "dosageForm": "Solution",
+      "strength": "516mg",
+      "routeOfAdministration": "Topical",
+      "manufacturer": "GlaxoSmithKline",
+      "manufacturerCountry": "Japan",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735342-pqktr577-1",
+          "manufacturingDate": "2025-08-14",
+          "expiryDate": "2027-08-14",
+          "quantity": 1049
+        }
+      ]
+    },
+    {
+      "id": "1773588735342-5wsusyuq",
+      "brandName": "Lisinopril",
+      "genericName": "Biguanide",
+      "druginventoryID": "1773588735342-5wsusyuq",
+      "therapeuticCategory": "Antihistamines",
+      "drugClass": "Anti-inflammatory",
+      "dosageForm": "Capsule",
+      "strength": "617mg",
+      "routeOfAdministration": "Inhalation",
+      "manufacturer": "Johnson & Johnson",
+      "manufacturerCountry": "USA",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735342-5wsusyuq-1",
+          "manufacturingDate": "2025-06-22",
+          "expiryDate": "2027-06-22",
+          "quantity": 3474
+        }
+      ]
+    },
+    {
+      "id": "1773588735342-oyyklcxh",
+      "brandName": "Atorvastatin",
+      "genericName": "Isobutylphenylpropionic Acid",
+      "druginventoryID": "1773588735342-oyyklcxh",
+      "therapeuticCategory": "Antibiotics",
+      "drugClass": "Anti-inflammatory",
+      "dosageForm": "Solution",
+      "strength": "123mg",
+      "routeOfAdministration": "Intravenous",
+      "manufacturer": "Johnson & Johnson",
+      "manufacturerCountry": "Germany",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735342-oyyklcxh-1",
+          "manufacturingDate": "2025-07-21",
+          "expiryDate": "2027-07-21",
+          "quantity": 1033
+        }
+      ]
+    },
+    {
+      "id": "1773588735343-twtjw671",
+      "brandName": "Omeprazole",
+      "genericName": "Isobutylphenylpropionic Acid",
+      "druginventoryID": "1773588735343-twtjw671",
+      "therapeuticCategory": "Antiinflammatories",
+      "drugClass": "Anti-inflammatory",
+      "dosageForm": "Cream",
+      "strength": "591mg",
+      "routeOfAdministration": "Intravenous",
+      "manufacturer": "Merck",
+      "manufacturerCountry": "India",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735343-twtjw671-1",
+          "manufacturingDate": "2025-10-08",
+          "expiryDate": "2027-10-08",
+          "quantity": 5176
+        }
+      ]
+    },
+    {
+      "id": "1773588735343-3bdst1p1",
+      "brandName": "Clopidogrel",
+      "genericName": "Paracetamol",
+      "druginventoryID": "1773588735343-3bdst1p1",
+      "therapeuticCategory": "Antihypertensives",
+      "drugClass": "Anti-inflammatory",
+      "dosageForm": "Capsule",
+      "strength": "336mg",
+      "routeOfAdministration": "Intravenous",
+      "manufacturer": "GlaxoSmithKline",
+      "manufacturerCountry": "USA",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735343-3bdst1p1-1",
+          "manufacturingDate": "2025-05-20",
+          "expiryDate": "2027-05-20",
+          "quantity": 5650
+        }
+      ]
+    },
+    {
+      "id": "1773588735343-lvn01bag",
+      "brandName": "Levothyroxine",
+      "genericName": "Biguanide",
+      "druginventoryID": "1773588735343-lvn01bag",
+      "therapeuticCategory": "Antihypertensives",
+      "drugClass": "Antihistamine",
+      "dosageForm": "Syrup",
+      "strength": "919mg",
+      "routeOfAdministration": "Topical",
+      "manufacturer": "Johnson & Johnson",
+      "manufacturerCountry": "UK",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735343-lvn01bag-1",
+          "manufacturingDate": "2025-11-07",
+          "expiryDate": "2027-11-07",
+          "quantity": 5926
+        }
+      ]
+    },
+    {
+      "id": "1773588735343-mn3lhw39",
+      "brandName": "Simvastatin",
+      "genericName": "Paracetamol",
+      "druginventoryID": "1773588735343-mn3lhw39",
+      "therapeuticCategory": "Antiinflammatories",
+      "drugClass": "Analgesic",
+      "dosageForm": "Solution",
+      "strength": "476mg",
+      "routeOfAdministration": "Topical",
+      "manufacturer": "Pfizer",
+      "manufacturerCountry": "India",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735343-mn3lhw39-1",
+          "manufacturingDate": "2025-07-19",
+          "expiryDate": "2027-07-19",
+          "quantity": 2595
+        }
+      ]
+    },
+    {
+      "id": "1773588735343-77z3o8fs",
+      "brandName": "Amlodipine",
+      "genericName": "ACE Inhibitor",
+      "druginventoryID": "1773588735343-77z3o8fs",
+      "therapeuticCategory": "Antihistamines",
+      "drugClass": "Anti-inflammatory",
+      "dosageForm": "Syrup",
+      "strength": "268mg",
+      "routeOfAdministration": "Intravenous",
+      "manufacturer": "Pfizer",
+      "manufacturerCountry": "USA",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735343-77z3o8fs-1",
+          "manufacturingDate": "2025-11-13",
+          "expiryDate": "2027-11-13",
+          "quantity": 1258
+        }
+      ]
+    },
+    {
+      "id": "1773588735343-l9n8wg6t",
+      "brandName": "Azithromycin",
+      "genericName": "Biguanide",
+      "druginventoryID": "1773588735343-l9n8wg6t",
+      "therapeuticCategory": "Analgesics",
+      "drugClass": "Analgesic",
+      "dosageForm": "Cream",
+      "strength": "294mg",
+      "routeOfAdministration": "Oral",
+      "manufacturer": "Pfizer",
+      "manufacturerCountry": "India",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735343-l9n8wg6t-1",
+          "manufacturingDate": "2025-05-10",
+          "expiryDate": "2027-05-10",
+          "quantity": 1746
+        }
+      ]
+    },
+    {
+      "id": "1773588735343-hgwwvawo",
+      "brandName": "Loratadine",
+      "genericName": "Isobutylphenylpropionic Acid",
+      "druginventoryID": "1773588735343-hgwwvawo",
+      "therapeuticCategory": "Analgesics",
+      "drugClass": "Anti-inflammatory",
+      "dosageForm": "Capsule",
+      "strength": "594mg",
+      "routeOfAdministration": "Inhalation",
+      "manufacturer": "Johnson & Johnson",
+      "manufacturerCountry": "Japan",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735343-hgwwvawo-1",
+          "manufacturingDate": "2025-09-12",
+          "expiryDate": "2027-09-12",
+          "quantity": 2441
+        }
+      ]
+    },
+    {
+      "id": "1773588735343-q950hxz6",
+      "brandName": "Cetirizine",
+      "genericName": "Paracetamol",
+      "druginventoryID": "1773588735343-q950hxz6",
+      "therapeuticCategory": "Antiinflammatories",
+      "drugClass": "Antibiotic",
+      "dosageForm": "Syrup",
+      "strength": "317mg",
+      "routeOfAdministration": "Oral",
+      "manufacturer": "Merck",
+      "manufacturerCountry": "Japan",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735343-q950hxz6-1",
+          "manufacturingDate": "2025-09-28",
+          "expiryDate": "2027-09-28",
+          "quantity": 5533
+        }
+      ]
+    },
+    {
+      "id": "1773588735343-63yox4qr",
+      "brandName": "Pantoprazole",
+      "genericName": "Fluoroquinolone",
+      "druginventoryID": "1773588735343-63yox4qr",
+      "therapeuticCategory": "Antiinflammatories",
+      "drugClass": "Analgesic",
+      "dosageForm": "Capsule",
+      "strength": "283mg",
+      "routeOfAdministration": "Topical",
+      "manufacturer": "Johnson & Johnson",
+      "manufacturerCountry": "India",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735343-63yox4qr-1",
+          "manufacturingDate": "2026-02-03",
+          "expiryDate": "2028-02-03",
+          "quantity": 4894
+        }
+      ]
+    },
+    {
+      "id": "1773588735343-3k95bdij",
+      "brandName": "Losartan",
+      "genericName": "Isobutylphenylpropionic Acid",
+      "druginventoryID": "1773588735343-3k95bdij",
+      "therapeuticCategory": "Antibiotics",
+      "drugClass": "Antibiotic",
+      "dosageForm": "Syrup",
+      "strength": "920mg",
+      "routeOfAdministration": "Oral",
+      "manufacturer": "Johnson & Johnson",
+      "manufacturerCountry": "UK",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735343-3k95bdij-1",
+          "manufacturingDate": "2025-11-21",
+          "expiryDate": "2027-11-21",
+          "quantity": 3147
+        }
+      ]
+    },
+    {
+      "id": "1773588735343-peoetwkb",
+      "brandName": "Naproxen",
+      "genericName": "Statin",
+      "druginventoryID": "1773588735343-peoetwkb",
+      "therapeuticCategory": "Analgesics",
+      "drugClass": "Antibiotic",
+      "dosageForm": "Cream",
+      "strength": "776mg",
+      "routeOfAdministration": "Topical",
+      "manufacturer": "Novartis",
+      "manufacturerCountry": "USA",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735343-peoetwkb-1",
+          "manufacturingDate": "2025-11-13",
+          "expiryDate": "2027-11-13",
+          "quantity": 1432
+        }
+      ]
+    },
+    {
+      "id": "1773588735343-96tgftqi",
+      "brandName": "Sertraline",
+      "genericName": "Acetylsalicylic Acid",
+      "druginventoryID": "1773588735343-96tgftqi",
+      "therapeuticCategory": "Antiinflammatories",
+      "drugClass": "Analgesic",
+      "dosageForm": "Tablet",
+      "strength": "137mg",
+      "routeOfAdministration": "Inhalation",
+      "manufacturer": "Merck",
+      "manufacturerCountry": "Japan",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735343-96tgftqi-1",
+          "manufacturingDate": "2026-01-02",
+          "expiryDate": "2028-01-02",
+          "quantity": 4066
+        }
+      ]
+    },
+    {
+      "id": "1773588735343-vbmiukba",
+      "brandName": "Panadol 1",
+      "genericName": "Statin",
+      "druginventoryID": "1773588735343-vbmiukba",
+      "therapeuticCategory": "Antihistamines",
+      "drugClass": "Anti-inflammatory",
+      "dosageForm": "Capsule",
+      "strength": "629mg",
+      "routeOfAdministration": "Intravenous",
+      "manufacturer": "Johnson & Johnson",
+      "manufacturerCountry": "India",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735343-vbmiukba-1",
+          "manufacturingDate": "2025-04-11",
+          "expiryDate": "2027-04-11",
+          "quantity": 5990
+        }
+      ]
+    },
+    {
+      "id": "1773588735343-verbweg9",
+      "brandName": "Aspirin 1",
+      "genericName": "Beta-lactam antibiotic",
+      "druginventoryID": "1773588735343-verbweg9",
+      "therapeuticCategory": "Antiinflammatories",
+      "drugClass": "Antibiotic",
+      "dosageForm": "Solution",
+      "strength": "154mg",
+      "routeOfAdministration": "Inhalation",
+      "manufacturer": "Merck",
+      "manufacturerCountry": "USA",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735343-verbweg9-1",
+          "manufacturingDate": "2025-07-25",
+          "expiryDate": "2027-07-25",
+          "quantity": 4087
+        }
+      ]
+    },
+    {
+      "id": "1773588735343-kxnfyotq",
+      "brandName": "Ibuprofen 1",
+      "genericName": "Beta-lactam antibiotic",
+      "druginventoryID": "1773588735343-kxnfyotq",
+      "therapeuticCategory": "Analgesics",
+      "drugClass": "Analgesic",
+      "dosageForm": "Syrup",
+      "strength": "706mg",
+      "routeOfAdministration": "Topical",
+      "manufacturer": "Johnson & Johnson",
+      "manufacturerCountry": "India",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735343-kxnfyotq-1",
+          "manufacturingDate": "2025-07-06",
+          "expiryDate": "2027-07-06",
+          "quantity": 5441
+        }
+      ]
+    },
+    {
+      "id": "1773588735343-c8m5s8kg",
+      "brandName": "Amoxicillin 1",
+      "genericName": "Isobutylphenylpropionic Acid",
+      "druginventoryID": "1773588735343-c8m5s8kg",
+      "therapeuticCategory": "Antiinflammatories",
+      "drugClass": "Anti-inflammatory",
+      "dosageForm": "Syrup",
+      "strength": "250mg",
+      "routeOfAdministration": "Inhalation",
+      "manufacturer": "Pfizer",
+      "manufacturerCountry": "Japan",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735343-c8m5s8kg-1",
+          "manufacturingDate": "2025-08-08",
+          "expiryDate": "2027-08-08",
+          "quantity": 2329
+        }
+      ]
+    },
+    {
+      "id": "1773588735343-l300e2in",
+      "brandName": "Ciprofloxacin 1",
+      "genericName": "Biguanide",
+      "druginventoryID": "1773588735343-l300e2in",
+      "therapeuticCategory": "Antibiotics",
+      "drugClass": "Analgesic",
+      "dosageForm": "Solution",
+      "strength": "439mg",
+      "routeOfAdministration": "Intravenous",
+      "manufacturer": "Pfizer",
+      "manufacturerCountry": "USA",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735343-l300e2in-1",
+          "manufacturingDate": "2025-04-25",
+          "expiryDate": "2027-04-25",
+          "quantity": 1625
+        }
+      ]
+    },
+    {
+      "id": "1773588735343-rchculdd",
+      "brandName": "Metformin 1",
+      "genericName": "Isobutylphenylpropionic Acid",
+      "druginventoryID": "1773588735343-rchculdd",
+      "therapeuticCategory": "Antihypertensives",
+      "drugClass": "Analgesic",
+      "dosageForm": "Tablet",
+      "strength": "915mg",
+      "routeOfAdministration": "Oral",
+      "manufacturer": "Pfizer",
+      "manufacturerCountry": "Japan",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735343-rchculdd-1",
+          "manufacturingDate": "2025-11-13",
+          "expiryDate": "2027-11-13",
+          "quantity": 1326
+        }
+      ]
+    },
+    {
+      "id": "1773588735343-q4xj7sd6",
+      "brandName": "Lisinopril 1",
+      "genericName": "Isobutylphenylpropionic Acid",
+      "druginventoryID": "1773588735343-q4xj7sd6",
+      "therapeuticCategory": "Antihypertensives",
+      "drugClass": "Antihistamine",
+      "dosageForm": "Capsule",
+      "strength": "603mg",
+      "routeOfAdministration": "Intravenous",
+      "manufacturer": "Pfizer",
+      "manufacturerCountry": "USA",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735343-q4xj7sd6-1",
+          "manufacturingDate": "2026-03-03",
+          "expiryDate": "2028-03-03",
+          "quantity": 3290
+        }
+      ]
+    },
+    {
+      "id": "1773588735343-u6dpfbj5",
+      "brandName": "Atorvastatin 1",
+      "genericName": "ACE Inhibitor",
+      "druginventoryID": "1773588735343-u6dpfbj5",
+      "therapeuticCategory": "Antibiotics",
+      "drugClass": "Analgesic",
+      "dosageForm": "Tablet",
+      "strength": "589mg",
+      "routeOfAdministration": "Topical",
+      "manufacturer": "Johnson & Johnson",
+      "manufacturerCountry": "UK",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735343-u6dpfbj5-1",
+          "manufacturingDate": "2025-09-15",
+          "expiryDate": "2027-09-15",
+          "quantity": 3179
+        }
+      ]
+    },
+    {
+      "id": "1773588735343-bcl2oxnl",
+      "brandName": "Omeprazole 1",
+      "genericName": "Biguanide",
+      "druginventoryID": "1773588735343-bcl2oxnl",
+      "therapeuticCategory": "Analgesics",
+      "drugClass": "Analgesic",
+      "dosageForm": "Cream",
+      "strength": "539mg",
+      "routeOfAdministration": "Intravenous",
+      "manufacturer": "GlaxoSmithKline",
+      "manufacturerCountry": "Germany",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735343-bcl2oxnl-1",
+          "manufacturingDate": "2025-11-02",
+          "expiryDate": "2027-11-02",
+          "quantity": 5152
+        }
+      ]
+    },
+    {
+      "id": "1773588735343-pq4hofwq",
+      "brandName": "Clopidogrel 1",
+      "genericName": "ACE Inhibitor",
+      "druginventoryID": "1773588735343-pq4hofwq",
+      "therapeuticCategory": "Analgesics",
+      "drugClass": "Anti-inflammatory",
+      "dosageForm": "Syrup",
+      "strength": "818mg",
+      "routeOfAdministration": "Intravenous",
+      "manufacturer": "Pfizer",
+      "manufacturerCountry": "USA",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735343-pq4hofwq-1",
+          "manufacturingDate": "2025-08-17",
+          "expiryDate": "2027-08-17",
+          "quantity": 5842
+        }
+      ]
+    },
+    {
+      "id": "1773588735343-o1ujznyk",
+      "brandName": "Levothyroxine 1",
+      "genericName": "Isobutylphenylpropionic Acid",
+      "druginventoryID": "1773588735343-o1ujznyk",
+      "therapeuticCategory": "Antiinflammatories",
+      "drugClass": "Antihistamine",
+      "dosageForm": "Capsule",
+      "strength": "643mg",
+      "routeOfAdministration": "Topical",
+      "manufacturer": "Pfizer",
+      "manufacturerCountry": "Germany",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735343-o1ujznyk-1",
+          "manufacturingDate": "2025-04-10",
+          "expiryDate": "2027-04-10",
+          "quantity": 5595
+        }
+      ]
+    },
+    {
+      "id": "1773588735343-qxtbyvn3",
+      "brandName": "Simvastatin 1",
+      "genericName": "Statin",
+      "druginventoryID": "1773588735343-qxtbyvn3",
+      "therapeuticCategory": "Analgesics",
+      "drugClass": "Anti-inflammatory",
+      "dosageForm": "Syrup",
+      "strength": "565mg",
+      "routeOfAdministration": "Topical",
+      "manufacturer": "Merck",
+      "manufacturerCountry": "UK",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735343-qxtbyvn3-1",
+          "manufacturingDate": "2025-10-27",
+          "expiryDate": "2027-10-27",
+          "quantity": 5665
+        }
+      ]
+    },
+    {
+      "id": "1773588735343-wn7zy44p",
+      "brandName": "Amlodipine 1",
+      "genericName": "Isobutylphenylpropionic Acid",
+      "druginventoryID": "1773588735343-wn7zy44p",
+      "therapeuticCategory": "Antiinflammatories",
+      "drugClass": "Antihypertensive",
+      "dosageForm": "Solution",
+      "strength": "842mg",
+      "routeOfAdministration": "Oral",
+      "manufacturer": "Pfizer",
+      "manufacturerCountry": "UK",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735343-wn7zy44p-1",
+          "manufacturingDate": "2026-02-11",
+          "expiryDate": "2028-02-11",
+          "quantity": 4659
+        }
+      ]
+    },
+    {
+      "id": "1773588735343-soyez9a0",
+      "brandName": "Azithromycin 1",
+      "genericName": "Fluoroquinolone",
+      "druginventoryID": "1773588735343-soyez9a0",
+      "therapeuticCategory": "Antibiotics",
+      "drugClass": "Antihistamine",
+      "dosageForm": "Cream",
+      "strength": "167mg",
+      "routeOfAdministration": "Intravenous",
+      "manufacturer": "Pfizer",
+      "manufacturerCountry": "Japan",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735343-soyez9a0-1",
+          "manufacturingDate": "2026-02-16",
+          "expiryDate": "2028-02-16",
+          "quantity": 4587
+        }
+      ]
+    },
+    {
+      "id": "1773588735343-24ncbbvz",
+      "brandName": "Loratadine 1",
+      "genericName": "Statin",
+      "druginventoryID": "1773588735343-24ncbbvz",
+      "therapeuticCategory": "Antiinflammatories",
+      "drugClass": "Analgesic",
+      "dosageForm": "Capsule",
+      "strength": "860mg",
+      "routeOfAdministration": "Intravenous",
+      "manufacturer": "Novartis",
+      "manufacturerCountry": "Germany",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735343-24ncbbvz-1",
+          "manufacturingDate": "2025-10-10",
+          "expiryDate": "2027-10-10",
+          "quantity": 4501
+        }
+      ]
+    },
+    {
+      "id": "1773588735343-9g96misy",
+      "brandName": "Cetirizine 1",
+      "genericName": "Beta-lactam antibiotic",
+      "druginventoryID": "1773588735343-9g96misy",
+      "therapeuticCategory": "Antibiotics",
+      "drugClass": "Analgesic",
+      "dosageForm": "Tablet",
+      "strength": "673mg",
+      "routeOfAdministration": "Oral",
+      "manufacturer": "Merck",
+      "manufacturerCountry": "India",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735343-9g96misy-1",
+          "manufacturingDate": "2026-01-14",
+          "expiryDate": "2028-01-14",
+          "quantity": 3937
+        }
+      ]
+    },
+    {
+      "id": "1773588735343-6teic8i7",
+      "brandName": "Pantoprazole 1",
+      "genericName": "Paracetamol",
+      "druginventoryID": "1773588735343-6teic8i7",
+      "therapeuticCategory": "Antiinflammatories",
+      "drugClass": "Anti-inflammatory",
+      "dosageForm": "Syrup",
+      "strength": "567mg",
+      "routeOfAdministration": "Intravenous",
+      "manufacturer": "Novartis",
+      "manufacturerCountry": "India",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735343-6teic8i7-1",
+          "manufacturingDate": "2025-06-15",
+          "expiryDate": "2027-06-15",
+          "quantity": 2020
+        }
+      ]
+    },
+    {
+      "id": "1773588735343-xbt6hjjn",
+      "brandName": "Losartan 1",
+      "genericName": "Isobutylphenylpropionic Acid",
+      "druginventoryID": "1773588735343-xbt6hjjn",
+      "therapeuticCategory": "Antiinflammatories",
+      "drugClass": "Analgesic",
+      "dosageForm": "Solution",
+      "strength": "703mg",
+      "routeOfAdministration": "Oral",
+      "manufacturer": "Johnson & Johnson",
+      "manufacturerCountry": "Japan",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735343-xbt6hjjn-1",
+          "manufacturingDate": "2025-08-24",
+          "expiryDate": "2027-08-24",
+          "quantity": 4159
+        }
+      ]
+    },
+    {
+      "id": "1773588735343-sdcqog1o",
+      "brandName": "Naproxen 1",
+      "genericName": "Statin",
+      "druginventoryID": "1773588735343-sdcqog1o",
+      "therapeuticCategory": "Antihistamines",
+      "drugClass": "Antibiotic",
+      "dosageForm": "Tablet",
+      "strength": "800mg",
+      "routeOfAdministration": "Topical",
+      "manufacturer": "Novartis",
+      "manufacturerCountry": "UK",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735343-sdcqog1o-1",
+          "manufacturingDate": "2025-06-21",
+          "expiryDate": "2027-06-21",
+          "quantity": 3402
+        }
+      ]
+    },
+    {
+      "id": "1773588735343-k3jc1jb7",
+      "brandName": "Sertraline 1",
+      "genericName": "Acetylsalicylic Acid",
+      "druginventoryID": "1773588735343-k3jc1jb7",
+      "therapeuticCategory": "Antihypertensives",
+      "drugClass": "Antihypertensive",
+      "dosageForm": "Syrup",
+      "strength": "853mg",
+      "routeOfAdministration": "Inhalation",
+      "manufacturer": "Pfizer",
+      "manufacturerCountry": "Germany",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735343-k3jc1jb7-1",
+          "manufacturingDate": "2025-09-14",
+          "expiryDate": "2027-09-14",
+          "quantity": 1865
+        }
+      ]
+    },
+    {
+      "id": "1773588735343-deah25z9",
+      "brandName": "Panadol 2",
+      "genericName": "Statin",
+      "druginventoryID": "1773588735343-deah25z9",
+      "therapeuticCategory": "Analgesics",
+      "drugClass": "Antihypertensive",
+      "dosageForm": "Syrup",
+      "strength": "197mg",
+      "routeOfAdministration": "Intravenous",
+      "manufacturer": "GlaxoSmithKline",
+      "manufacturerCountry": "Japan",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735343-deah25z9-1",
+          "manufacturingDate": "2025-05-17",
+          "expiryDate": "2027-05-17",
+          "quantity": 3984
+        }
+      ]
+    },
+    {
+      "id": "1773588735343-b3uip5s9",
+      "brandName": "Aspirin 2",
+      "genericName": "ACE Inhibitor",
+      "druginventoryID": "1773588735343-b3uip5s9",
+      "therapeuticCategory": "Antihistamines",
+      "drugClass": "Analgesic",
+      "dosageForm": "Tablet",
+      "strength": "946mg",
+      "routeOfAdministration": "Topical",
+      "manufacturer": "Johnson & Johnson",
+      "manufacturerCountry": "India",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735343-b3uip5s9-1",
+          "manufacturingDate": "2025-11-21",
+          "expiryDate": "2027-11-21",
+          "quantity": 4209
+        }
+      ]
+    },
+    {
+      "id": "1773588735343-j8vh5ucf",
+      "brandName": "Ibuprofen 2",
+      "genericName": "Acetylsalicylic Acid",
+      "druginventoryID": "1773588735343-j8vh5ucf",
+      "therapeuticCategory": "Antihypertensives",
+      "drugClass": "Antihypertensive",
+      "dosageForm": "Cream",
+      "strength": "985mg",
+      "routeOfAdministration": "Inhalation",
+      "manufacturer": "Johnson & Johnson",
+      "manufacturerCountry": "Germany",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735343-j8vh5ucf-1",
+          "manufacturingDate": "2026-03-04",
+          "expiryDate": "2028-03-04",
+          "quantity": 5901
+        }
+      ]
+    },
+    {
+      "id": "1773588735343-c03vi3y2",
+      "brandName": "Amoxicillin 2",
+      "genericName": "Acetylsalicylic Acid",
+      "druginventoryID": "1773588735343-c03vi3y2",
+      "therapeuticCategory": "Antihypertensives",
+      "drugClass": "Analgesic",
+      "dosageForm": "Tablet",
+      "strength": "812mg",
+      "routeOfAdministration": "Topical",
+      "manufacturer": "Johnson & Johnson",
+      "manufacturerCountry": "UK",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735343-c03vi3y2-1",
+          "manufacturingDate": "2025-06-18",
+          "expiryDate": "2027-06-18",
+          "quantity": 2169
+        }
+      ]
+    },
+    {
+      "id": "1773588735343-dm13ft6v",
+      "brandName": "Ciprofloxacin 2",
+      "genericName": "Fluoroquinolone",
+      "druginventoryID": "1773588735343-dm13ft6v",
+      "therapeuticCategory": "Antibiotics",
+      "drugClass": "Antihypertensive",
+      "dosageForm": "Cream",
+      "strength": "908mg",
+      "routeOfAdministration": "Intravenous",
+      "manufacturer": "Novartis",
+      "manufacturerCountry": "Japan",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735343-dm13ft6v-1",
+          "manufacturingDate": "2025-09-14",
+          "expiryDate": "2027-09-14",
+          "quantity": 4139
+        }
+      ]
+    },
+    {
+      "id": "1773588735343-9pjq0bfu",
+      "brandName": "Metformin 2",
+      "genericName": "Fluoroquinolone",
+      "druginventoryID": "1773588735343-9pjq0bfu",
+      "therapeuticCategory": "Antihistamines",
+      "drugClass": "Anti-inflammatory",
+      "dosageForm": "Syrup",
+      "strength": "744mg",
+      "routeOfAdministration": "Topical",
+      "manufacturer": "GlaxoSmithKline",
+      "manufacturerCountry": "Germany",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735343-9pjq0bfu-1",
+          "manufacturingDate": "2025-09-08",
+          "expiryDate": "2027-09-08",
+          "quantity": 1378
+        }
+      ]
+    },
+    {
+      "id": "1773588735343-son2fqys",
+      "brandName": "Lisinopril 2",
+      "genericName": "Acetylsalicylic Acid",
+      "druginventoryID": "1773588735343-son2fqys",
+      "therapeuticCategory": "Antiinflammatories",
+      "drugClass": "Analgesic",
+      "dosageForm": "Syrup",
+      "strength": "229mg",
+      "routeOfAdministration": "Inhalation",
+      "manufacturer": "Pfizer",
+      "manufacturerCountry": "UK",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735343-son2fqys-1",
+          "manufacturingDate": "2026-02-09",
+          "expiryDate": "2028-02-09",
+          "quantity": 5972
+        }
+      ]
+    },
+    {
+      "id": "1773588735343-p18uxbel",
+      "brandName": "Atorvastatin 2",
+      "genericName": "ACE Inhibitor",
+      "druginventoryID": "1773588735343-p18uxbel",
+      "therapeuticCategory": "Antibiotics",
+      "drugClass": "Antibiotic",
+      "dosageForm": "Solution",
+      "strength": "952mg",
+      "routeOfAdministration": "Topical",
+      "manufacturer": "Novartis",
+      "manufacturerCountry": "India",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735343-p18uxbel-1",
+          "manufacturingDate": "2025-06-03",
+          "expiryDate": "2027-06-03",
+          "quantity": 5935
+        }
+      ]
+    },
+    {
+      "id": "1773588735343-dxvvdw1o",
+      "brandName": "Omeprazole 2",
+      "genericName": "Acetylsalicylic Acid",
+      "druginventoryID": "1773588735343-dxvvdw1o",
+      "therapeuticCategory": "Antihypertensives",
+      "drugClass": "Analgesic",
+      "dosageForm": "Tablet",
+      "strength": "366mg",
+      "routeOfAdministration": "Topical",
+      "manufacturer": "Pfizer",
+      "manufacturerCountry": "USA",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735343-dxvvdw1o-1",
+          "manufacturingDate": "2025-04-09",
+          "expiryDate": "2027-04-09",
+          "quantity": 3479
+        }
+      ]
+    },
+    {
+      "id": "1773588735343-gabz1c77",
+      "brandName": "Clopidogrel 2",
+      "genericName": "Statin",
+      "druginventoryID": "1773588735343-gabz1c77",
+      "therapeuticCategory": "Analgesics",
+      "drugClass": "Analgesic",
+      "dosageForm": "Cream",
+      "strength": "919mg",
+      "routeOfAdministration": "Oral",
+      "manufacturer": "Merck",
+      "manufacturerCountry": "Germany",
+      "approvalStatus": "Approved",
+      "images": {
+        "productImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80",
+        "pillImage": "https://images.unsplash.com/photo-1587854692152-cbe660dbde26?w=500&q=80",
+        "packagingImage": "https://images.unsplash.com/photo-1587317180395-0eadf01e3843?w=500&q=80"
+      },
+      "batches": [
+        {
+          "batchNumber": "BATCH-1773588735343-gabz1c77-1",
+          "manufacturingDate": "2025-08-31",
+          "expiryDate": "2027-08-31",
+          "quantity": 1883
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "totalMedicines": 50,
+    "totalBatches": 50,
+    "generatedAt": "2026-03-15T15:32:15.344Z",
+    "version": "2.0-demo-optimized",
+    "optimizations": [
+      "Reduced from 275 to 50 medicines",
+      "Reduced from 3 to 1 batch per medicine",
+      "Optimized data structure for list view",
+      "Only 5 manufacturers for faster filtering",
+      "Only 5 categories for faster filtering"
+    ]
+  }
+}
