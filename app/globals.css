@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -29,4 +31,18 @@ button {
   border: none;
   background: none;
   font-family: inherit;
+}
+
+@layer components {
+  .card-elevated {
+    @apply bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow;
+  }
+
+  .btn-primary {
+    @apply px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition;
+  }
 }

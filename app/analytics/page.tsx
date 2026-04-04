@@ -1,168 +1,329 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
+import { useMemo } from "react";
+import {
+  BarChart,
+  Bar,
+  LineChart,
+  Line,
+  PieChart,
+  Pie,
+  Cell,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+  ScatterChart,
+  Scatter,
+} from "recharts";
+import { medicines, manufacturers, batches, inspections, laboratoryTests } from "@/lib/data";
+import { TrendingUp } from "lucide-react";
 
 export default function AnalyticsPage() {
-  const [stats, setStats] = useState(null);
+  // Medicine status distribution
+  const medicineStatusData = [
+    { name: "Approved", value: medicines.filter((m) => m.status === "approved").length },
+    { name: "Pending", value: medicines.filter((m) => m.status === "pending").length },
+    { name: "Suspended", value: medicines.filter((m) => m.status === "suspended").length },
+    { name: "Revoked", value: medicines.filter((m) => m.status === "revoked").length },
+  ];
 
-  useEffect(() => {
-    setStats({
-      totalMedicines: 50,
-      totalInventory: 12500,
-      totalApprovals: 150,
-      approvalRate: 92,
-      testPass: 95,
-      testFail: 5,
-      inspectionPass: 88,
-      inspectionFail: 12,
-      avgProcessTime: 4.5,
-      manufacturersActive: 25,
-      categoriesManaged: 12,
-      monthlyOrders: 450,
-      weeklyGrowth: 8.5,
-      revenue: '$125000'
+  // Batch distribution
+  const batchStatusData = [
+    { name: "Available", value: batches.filter((b) => b.status === "available").length },
+    { name: "Reserved", value: batches.filter((b) => b.status === "reserved").length },
+    { name: "Distributed", value: batches.filter((b) => b.status === "distributed").length },
+    { name: "Expired", value: batches.filter((b) => b.status === "expired").length },
+  ];
+
+  // Manufacturer country distribution
+  const manufacturerCountryData = useMemo(() => {
+    const data: Record<string, number> = {};
+    manufacturers.forEach((mfr) => {
+      data[mfr.country] = (data[mfr.country] || 0) + 1;
     });
+    return Object.entries(data)
+      .map(([country, count]) => ({ country, count }))
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 10);
   }, []);
 
-  if (!stats) return <div className="flex justify-center items-center min-h-screen">Loading analytics...</div>;
+  // Therapeutic category distribution
+  const categoryData = useMemo(() => {
+    const data: Record<string, number> = {};
+    medicines.forEach((med) => {
+      data[med.therapeuticCategory] = (data[med.therapeuticCategory] || 0) + 1;
+    });
+    return Object.entries(data)
+      .map(([category, count]) => ({ category, count }))
+      .sort((a, b) => b.count - a.count);
+  }, []);
+
+  // Inspection findings severity
+  const inspectionData = [
+    { name: "Critical", value: inspections.filter((i) => i.findingsSeverity === "critical").length, color: "#ef4444" },
+    { name: "Major", value: inspections.filter((i) => i.findingsSeverity === "major").length, color: "#f97316" },
+    { name: "Minor", value: inspections.filter((i) => i.findingsSeverity === "minor").length, color: "#eab308" },
+    { name: "None", value: inspections.filter((i) => i.findingsSeverity === "none").length, color: "#22c55e" },
+  ];
+
+  // Lab test performance
+  const testPerformanceData = [
+    { name: "Passed", value: laboratoryTests.filter((t) => t.status === "passed").length, color: "#10b981" },
+    { name: "Failed", value: laboratoryTests.filter((t) => t.status === "failed").length, color: "#ef4444" },
+    { name: "Pending", value: laboratoryTests.filter((t) => t.status === "pending").length, color: "#f59e0b" },
+  ];
+
+  // Medicines approved by year
+  const approvalsPerYear = useMemo(() => {
+    const yearMap: Record<number, number> = {};
+    medicines.forEach((med) => {
+      if (med.status === 'approved' && med.approvalDate) {
+        const year = new Date(med.approvalDate).getFullYear();
+        yearMap[year] = (yearMap[year] || 0) + 1;
+      }
+    });
+    return Object.entries(yearMap)
+      .map(([year, count]) => ({ year: parseInt(year), count }))
+      .sort((a, b) => a.year - b.year)
+      .slice(-10); // Last 10 years
+  }, []);
+
+  // Top manufacturers by product count
+  const topManufacturersData = useMemo(() => {
+    const mfrMap: Record<string, number> = {};
+    medicines.forEach((med) => {
+      mfrMap[med.manufacturer] = (mfrMap[med.manufacturer] || 0) + 1;
+    });
+    return Object.entries(mfrMap)
+      .map(([name, count]) => ({ name, count }))
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 10);
+  }, []);
+
+  // Inspections by company (location)
+  const inspectionsByLocation = useMemo(() => {
+    const locMap: Record<string, number> = {};
+    inspections.forEach((insp) => {
+      locMap[insp.facilityName] = (locMap[insp.facilityName] || 0) + 1;
+    });
+    return Object.entries(locMap)
+      .map(([name, count]) => ({ name, count }))
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 5);
+  }, []);
+
+  // Statistics
+  const stats = {
+    totalMedicines: medicines.length,
+    totalManufacturers: manufacturers.length,
+    totalBatches: batches.length,
+    totalInspections: inspections.length,
+    avgBatchSize: Math.round(batches.reduce((sum, b) => sum + b.quantity, 0) / batches.length),
+    passRate: ((laboratoryTests.filter((t) => t.status === "passed").length / laboratoryTests.length) * 100).toFixed(1),
+  };
+
+  const COLORS = ["#10b981", "#f59e0b", "#ef4444", "#8b5cf6"];
 
   return (
-    <main className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold mb-8">Analytics & Reports</h1>
+    <div className="p-4 lg:p-8 bg-slate-50">
+      <div className="mb-8">
+        <h1 className="text-3xl font-bold text-gray-900">Analytics & Reports</h1>
+        <p className="text-gray-600 mt-2">Comprehensive regulatory data analytics and insights</p>
+      </div>
 
-        {/* Key Metrics */}
-        <div className="grid md:grid-cols-4 gap-4 mb-8">
-          <div className="bg-white rounded-lg shadow p-6">
-            <p className="text-gray-600 text-sm">Total Medicines</p>
-            <p className="text-3xl font-bold text-blue-600">{stats.totalMedicines}</p>
-            <p className="text-xs text-green-600 mt-2">+12% vs last month</p>
+      {/* Key Metrics */}
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
+        {[
+          { label: "Total Medicines", value: stats.totalMedicines, color: "bg-blue-50 text-blue-600" },
+          { label: "Manufacturers", value: stats.totalManufacturers, color: "bg-purple-50 text-purple-600" },
+          { label: "Batches", value: stats.totalBatches, color: "bg-green-50 text-green-600" },
+          { label: "Inspections", value: stats.totalInspections, color: "bg-yellow-50 text-yellow-600" },
+          { label: "Avg Batch Size", value: stats.avgBatchSize.toLocaleString(), color: "bg-orange-50 text-orange-600" },
+          { label: "Lab Pass Rate", value: `${stats.passRate}%`, color: "bg-red-50 text-red-600" },
+        ].map((stat, idx) => (
+          <div key={idx} className={`${stat.color} rounded-lg p-4 text-center`}>
+            <p className="text-xs font-semibold opacity-70">{stat.label}</p>
+            <p className="text-2xl font-bold mt-2">{stat.value}</p>
           </div>
-          <div className="bg-white rounded-lg shadow p-6">
-            <p className="text-gray-600 text-sm">Total Inventory</p>
-            <p className="text-3xl font-bold text-purple-600">{stats.totalInventory}</p>
-            <p className="text-xs text-green-600 mt-2">Units in stock</p>
-          </div>
-          <div className="bg-white rounded-lg shadow p-6">
-            <p className="text-gray-600 text-sm">Approval Rate</p>
-            <p className="text-3xl font-bold text-green-600">{stats.approvalRate}%</p>
-            <p className="text-xs text-green-600 mt-2">+2% vs last month</p>
-          </div>
-          <div className="bg-white rounded-lg shadow p-6">
-            <p className="text-gray-600 text-sm">Avg Process Time</p>
-            <p className="text-3xl font-bold text-orange-600">{stats.avgProcessTime} days</p>
-            <p className="text-xs text-green-600 mt-2">-0.5 days faster</p>
-          </div>
+        ))}
+      </div>
+
+      {/* Charts Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+        {/* Medicines Approved by Year */}
+        <div className="bg-white rounded-lg shadow-md p-6">
+          <h2 className="text-lg font-semibold text-gray-900 mb-4">Medicines Approved by Year</h2>
+          <ResponsiveContainer width="100%" height={300}>
+            <BarChart data={approvalsPerYear}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="year" />
+              <YAxis />
+              <Tooltip />
+              <Bar dataKey="count" fill="#3b82f6" radius={[8, 8, 0, 0]} />
+            </BarChart>
+          </ResponsiveContainer>
         </div>
 
-        {/* Charts Row */}
-        <div className="grid md:grid-cols-2 gap-8 mb-8">
-          {/* Test Results Chart */}
-          <div className="bg-white rounded-lg shadow p-6">
-            <h2 className="text-xl font-bold mb-4">Laboratory Test Results</h2>
-            <div className="space-y-3">
-              <div>
-                <p className="text-sm text-gray-600 mb-1">Pass Rate: {stats.testPass}%</p>
-                <div className="w-full bg-gray-200 rounded-full h-2">
-                  <div className="bg-green-500 h-2 rounded-full" style={{width: `${stats.testPass}%`}}></div>
-                </div>
-              </div>
-              <div>
-                <p className="text-sm text-gray-600 mb-1">Fail Rate: {stats.testFail}%</p>
-                <div className="w-full bg-gray-200 rounded-full h-2">
-                  <div className="bg-red-500 h-2 rounded-full" style={{width: `${stats.testFail}%`}}></div>
-                </div>
-              </div>
-            </div>
-            <div className="mt-4 p-3 bg-blue-50 rounded">
-              <p className="text-sm"><span className="font-semibold">1425</span> tests completed this month</p>
-            </div>
-          </div>
-
-          {/* Inspection Results Chart */}
-          <div className="bg-white rounded-lg shadow p-6">
-            <h2 className="text-xl font-bold mb-4">Facility Inspection Results</h2>
-            <div className="space-y-3">
-              <div>
-                <p className="text-sm text-gray-600 mb-1">Pass Rate: {stats.inspectionPass}%</p>
-                <div className="w-full bg-gray-200 rounded-full h-2">
-                  <div className="bg-green-500 h-2 rounded-full" style={{width: `${stats.inspectionPass}%`}}></div>
-                </div>
-              </div>
-              <div>
-                <p className="text-sm text-gray-600 mb-1">Fail Rate: {stats.inspectionFail}%</p>
-                <div className="w-full bg-gray-200 rounded-full h-2">
-                  <div className="bg-red-500 h-2 rounded-full" style={{width: `${stats.inspectionFail}%`}}></div>
-                </div>
-              </div>
-            </div>
-            <div className="mt-4 p-3 bg-blue-50 rounded">
-              <p className="text-sm"><span className="font-semibold">34</span> inspections completed this month</p>
-            </div>
-          </div>
+        {/* Top Manufacturers by Registered Products */}
+        <div className="bg-white rounded-lg shadow-md p-6">
+          <h2 className="text-lg font-semibold text-gray-900 mb-4">Top Manufacturers by Registered Products</h2>
+          <ResponsiveContainer width="100%" height={300}>
+            <BarChart
+              data={topManufacturersData}
+              layout="vertical"
+              margin={{ top: 5, right: 30, left: 200, bottom: 5 }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis type="number" />
+              <YAxis type="category" dataKey="name" width={195} />
+              <Tooltip />
+              <Bar dataKey="count" fill="#10b981" radius={[0, 8, 8, 0]} />
+            </BarChart>
+          </ResponsiveContainer>
         </div>
 
-        {/* Operations Stats */}
-        <div className="grid md:grid-cols-3 gap-4 mb-8">
-          <div className="bg-white rounded-lg shadow p-6">
-            <h3 className="font-semibold mb-4">Operations</h3>
-            <div className="space-y-3">
-              <div className="flex justify-between"><span>Monthly Orders</span><span className="font-bold text-green-600">{stats.monthlyOrders}</span></div>
-              <div className="flex justify-between"><span>Weekly Growth</span><span className="font-bold text-green-600">+{stats.weeklyGrowth}%</span></div>
-              <div className="flex justify-between"><span>Monthly Revenue</span><span className="font-bold text-green-600">{stats.revenue}</span></div>
-            </div>
-          </div>
-
-          <div className="bg-white rounded-lg shadow p-6">
-            <h3 className="font-semibold mb-4">System Health</h3>
-            <div className="space-y-3">
-              <div className="flex justify-between"><span>Active Manufacturers</span><span className="font-bold text-blue-600">{stats.manufacturersActive}</span></div>
-              <div className="flex justify-between"><span>Categories</span><span className="font-bold text-blue-600">{stats.categoriesManaged}</span></div>
-              <div className="flex justify-between"><span>System Status</span><span className="font-bold text-green-600">● Healthy</span></div>
-            </div>
-          </div>
-
-          <div className="bg-white rounded-lg shadow p-6">
-            <h3 className="font-semibold mb-4">Performance</h3>
-            <div className="space-y-3">
-              <div className="flex justify-between"><span>Avg Response Time</span><span className="font-bold text-blue-600">245ms</span></div>
-              <div className="flex justify-between"><span>Uptime</span><span className="font-bold text-green-600">99.8%</span></div>
-              <div className="flex justify-between"><span>API Health</span><span className="font-bold text-green-600">● Optimal</span></div>
-            </div>
-          </div>
+        {/* Batch Status Distribution */}
+        <div className="bg-white rounded-lg shadow-md p-6">
+          <h2 className="text-lg font-semibold text-gray-900 mb-4">Batch Status Distribution</h2>
+          <ResponsiveContainer width="100%" height={300}>
+            <BarChart data={batchStatusData}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Bar dataKey="value" fill="#3b82f6" />
+            </BarChart>
+          </ResponsiveContainer>
         </div>
 
-        {/* Recent Trends */}
-        <div className="bg-white rounded-lg shadow p-6">
-          <h2 className="text-xl font-bold mb-4">Monthly Trends</h2>
-          <div className="space-y-4">
-            <div className="flex items-center">
-              <span className="w-24 text-sm">January</span>
-              <div className="flex-1 bg-gray-100 rounded h-8 flex items-center" style={{width: '100%'}}>
-                <div className="bg-blue-500 h-8 rounded flex items-center pl-2 text-white text-xs font-semibold" style={{width: '65%'}}>320 units</div>
-              </div>
-            </div>
-            <div className="flex items-center">
-              <span className="w-24 text-sm">February</span>
-              <div className="flex-1 bg-gray-100 rounded h-8 flex items-center" style={{width: '100%'}}>
-                <div className="bg-blue-500 h-8 rounded flex items-center pl-2 text-white text-xs font-semibold" style={{width: '75%'}}>380 units</div>
-              </div>
-            </div>
-            <div className="flex items-center">
-              <span className="w-24 text-sm">March</span>
-              <div className="flex-1 bg-gray-100 rounded h-8 flex items-center" style={{width: '100%'}}>
-                <div className="bg-blue-500 h-8 rounded flex items-center pl-2 text-white text-xs font-semibold" style={{width: '82%'}}>415 units</div>
-              </div>
-            </div>
-            <div className="flex items-center">
-              <span className="w-24 text-sm">April</span>
-              <div className="flex-1 bg-gray-100 rounded h-8 flex items-center" style={{width: '100%'}}>
-                <div className="bg-blue-500 h-8 rounded flex items-center pl-2 text-white text-xs font-semibold" style={{width: '88%'}}>450 units</div>
-              </div>
-            </div>
+        {/* Lab Test Results */}
+        <div className="bg-white rounded-lg shadow-md p-6">
+          <h2 className="text-lg font-semibold text-gray-900 mb-4">Laboratory Test Results</h2>
+          <ResponsiveContainer width="100%" height={300}>
+            <PieChart>
+              <Pie
+                data={testPerformanceData}
+                cx="50%"
+                cy="50%"
+                labelLine={false}
+                label={({ name, value }) => `${name}: ${value}`}
+                outerRadius={80}
+                fill="#8884d8"
+                dataKey="value"
+              >
+                {testPerformanceData.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={entry.color} />
+                ))}
+              </Pie>
+              <Tooltip />
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
+
+        {/* Inspection Findings Severity */}
+        <div className="bg-white rounded-lg shadow-md p-6">
+          <h2 className="text-lg font-semibold text-gray-900 mb-4">Inspection Findings Severity</h2>
+          <ResponsiveContainer width="100%" height={300}>
+            <BarChart data={inspectionData}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Bar dataKey="value" fill="#8b5cf6" />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+
+        {/* Top Manufacturers by Country */}
+        <div className="bg-white rounded-lg shadow-md p-6">
+          <h2 className="text-lg font-semibold text-gray-900 mb-4">Top Manufacturers by Country</h2>
+          <ResponsiveContainer width="100%" height={300}>
+            <BarChart
+              data={manufacturerCountryData}
+              layout="vertical"
+              margin={{ top: 5, right: 30, left: 100, bottom: 5 }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis type="number" />
+              <YAxis type="category" dataKey="country" width={95} />
+              <Tooltip />
+              <Bar dataKey="count" fill="#06b6d4" />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+
+        {/* Inspections by Facility */}
+        <div className="bg-white rounded-lg shadow-md p-6">
+          <h2 className="text-lg font-semibold text-gray-900 mb-4">Top Facilities by Inspection Count</h2>
+          <ResponsiveContainer width="100%" height={300}>
+            <BarChart
+              data={inspectionsByLocation}
+              layout="vertical"
+              margin={{ top: 5, right: 30, left: 150, bottom: 5 }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis type="number" />
+              <YAxis type="category" dataKey="name" width={145} tick={{ fontSize: 12 }} />
+              <Tooltip />
+              <Bar dataKey="count" fill="#f59e0b" radius={[0, 8, 8, 0]} />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+
+        {/* Therapeutic Categories */}
+        <div className="bg-white rounded-lg shadow-md p-6 lg:col-span-2">
+          <h2 className="text-lg font-semibold text-gray-900 mb-4">Medicines by Therapeutic Category</h2>
+          <ResponsiveContainer width="100%" height={400}>
+            <BarChart
+              data={categoryData}
+              margin={{ top: 20, right: 30, left: 30, bottom: 120 }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="category" angle={-45} textAnchor="end" height={120} />
+              <YAxis />
+              <Tooltip />
+              <Bar dataKey="count" fill="#ec4899" />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+      </div>
+
+      {/* Summary Section */}
+      <div className="bg-white rounded-lg shadow-md p-6">
+        <div className="flex items-center gap-2 mb-4">
+          <TrendingUp size={24} className="text-blue-600" />
+          <h2 className="text-lg font-semibold text-gray-900">Key Insights</h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="border-l-4 border-blue-500 pl-4">
+            <p className="font-medium text-gray-900">Regulatory Coverage</p>
+            <p className="text-sm text-gray-600 mt-1">
+              ZMRA currently manages {stats.totalMedicines} registered medicines from {stats.totalManufacturers} manufacturers across the region.
+            </p>
+          </div>
+          <div className="border-l-4 border-green-500 pl-4">
+            <p className="font-medium text-gray-900">Quality Assurance</p>
+            <p className="text-sm text-gray-600 mt-1">
+              Laboratory testing demonstrates {stats.passRate}% compliance rate with quality specifications across all batch inspections.
+            </p>
+          </div>
+          <div className="border-l-4 border-yellow-500 pl-4">
+            <p className="font-medium text-gray-900">Batch Management</p>
+            <p className="text-sm text-gray-600 mt-1">
+              Currently tracking {stats.totalBatches} pharmaceutical batches with an average batch size of {stats.avgBatchSize.toLocaleString()} units.
+            </p>
+          </div>
+          <div className="border-l-4 border-purple-500 pl-4">
+            <p className="font-medium text-gray-900">Compliance Monitoring</p>
+            <p className="text-sm text-gray-600 mt-1">
+              {stats.totalInspections} inspections conducted to ensure manufacturer compliance with GMP and regulatory requirements.
+            </p>
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

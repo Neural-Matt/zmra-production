@@ -1,113 +1,136 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from "react";
+import { manufacturers } from "@/lib/data";
+import { formatDate } from "@/lib/dateUtils";
+import { Search, MapPin, Phone, Globe, Award } from "lucide-react";
 
 export default function ManufacturersPage() {
-  const [manufacturers, setManufacturers] = useState([]);
-  const [showForm, setShowForm] = useState(false);
-  const [formData, setFormData] = useState({ name: '', country: '', status: '' });
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filterStatus, setFilterStatus] = useState("all");
 
-  useEffect(() => {
-    setManufacturers([
-      { id: 1, name: 'PharmaCorp Industries', country: 'USA', products: 15, status: 'Active', certification: 'ISO 9001', established: '2010' },
-      { id: 2, name: 'GlobalMed Solutions', country: 'Germany', products: 22, status: 'Active', certification: 'GMP', established: '2005' },
-      { id: 3, name: 'Asia Pharma Group', country: 'India', products: 18, status: 'Active', certification: 'ISO 9001', established: '2012' },
-      { id: 4, name: 'EuroDrug Manufacturing', country: 'Switzerland', products: 10, status: 'Active', certification: 'GMP', established: '2015' },
-      { id: 5, name: 'Orient Healthcare', country: 'China', products: 25, status: 'Inactive', certification: 'ISO 9001', established: '2008' },
-    ]);
-  }, []);
+  const filteredManufacturers = useMemo(() => {
+    return manufacturers.filter(
+      (mfr) =>
+        (filterStatus === "all" || mfr.status === filterStatus) &&
+        (mfr.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          mfr.country.toLowerCase().includes(searchTerm.toLowerCase()))
+    );
+  }, [searchTerm, filterStatus]);
 
-  const handleAddManufacturer = () => {
-    if (formData.name && formData.country) {
-      setManufacturers([...manufacturers, {
-        id: manufacturers.length + 1,
-        name: formData.name,
-        country: formData.country,
-        products: 0,
-        status: formData.status || 'Active',
-        certification: 'Pending',
-        established: new Date().getFullYear().toString()
-      }]);
-      setFormData({ name: '', country: '', status: '' });
-      setShowForm(false);
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case "active":
+        return "bg-green-100 text-green-800";
+      case "suspended":
+        return "bg-red-100 text-red-800";
+      default:
+        return "bg-gray-100 text-gray-800";
     }
   };
 
-  const getStatusBadge = (status) => {
-    return status === 'Active' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800';
-  };
-
   return (
-    <main className="min-h-screen bg-gray-50">
-      <div className="max-w-6xl mx-auto px-4 py-8">
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-4xl font-bold">Manufacturers & Suppliers</h1>
-          <button onClick={() => setShowForm(!showForm)} className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700">
-            {showForm ? 'Cancel' : '+ Add Manufacturer'}
-          </button>
+    <div className="canvas-bg min-h-screen flex-1 overflow-auto">
+      <div className="max-w-7xl mx-auto p-6 lg:p-8">
+        <div className="mb-8">
+          <h1 className="text-3xl font-semibold text-gray-900">Manufacturers & Importers</h1>
+          <p className="text-sm text-gray-600 mt-1">Licensed pharmaceutical manufacturers and importers</p>
         </div>
 
-        {showForm && (
-          <div className="bg-white rounded-lg shadow p-6 mb-8">
-            <div className="grid md:grid-cols-3 gap-4">
-              <input type="text" placeholder="Manufacturer Name" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} className="border p-2 rounded" />
-              <input type="text" placeholder="Country" value={formData.country} onChange={(e) => setFormData({...formData, country: e.target.value})} className="border p-2 rounded" />
-              <select value={formData.status} onChange={(e) => setFormData({...formData, status: e.target.value})} className="border p-2 rounded">
-                <option value="">Select Status</option>
-                <option value="Active">Active</option>
-                <option value="Inactive">Inactive</option>
-              </select>
+        {/* Controls */}
+        <div className="surface-panel mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="relative">
+              <Search className="absolute left-3 top-3 text-gray-400" size={20} />
+              <input
+                type="text"
+                placeholder="Search manufacturers..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
             </div>
-            <button onClick={handleAddManufacturer} className="mt-4 bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700">Add</button>
+            <select
+              value={filterStatus}
+              onChange={(e) => setFilterStatus(e.target.value)}
+              className="px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              <option value="all">All Status</option>
+              <option value="active">Active</option>
+              <option value="suspended">Suspended</option>
+              <option value="inactive">Inactive</option>
+            </select>
           </div>
-        )}
-
-        <div className="grid md:grid-cols-4 gap-4 mb-8">
-          <div className="bg-white rounded-lg shadow p-4">
-            <p className="text-gray-600">Total Manufacturers</p>
-            <p className="text-3xl font-bold">{manufacturers.length}</p>
-          </div>
-          <div className="bg-white rounded-lg shadow p-4">
-            <p className="text-gray-600">Active</p>
-            <p className="text-3xl font-bold text-green-600">{manufacturers.filter(m => m.status === 'Active').length}</p>
-          </div>
-          <div className="bg-white rounded-lg shadow p-4">
-            <p className="text-gray-600">Total Products</p>
-            <p className="text-3xl font-bold">{manufacturers.reduce((sum, m) => sum + m.products, 0)}</p>
-          </div>
-          <div className="bg-white rounded-lg shadow p-4">
-            <p className="text-gray-600">Countries</p>
-            <p className="text-3xl font-bold">{new Set(manufacturers.map(m => m.country)).size}</p>
-          </div>
+          <p className="text-sm text-gray-600 mt-4">
+            Showing {filteredManufacturers.length} of {manufacturers.length} manufacturers
+          </p>
         </div>
 
-        <div className="bg-white rounded-lg shadow overflow-hidden">
-          <table className="w-full">
-            <thead className="bg-gray-100 border-b">
-              <tr>
-                <th className="px-6 py-3 text-left font-semibold">Name</th>
-                <th className="px-6 py-3 text-left font-semibold">Country</th>
-                <th className="px-6 py-3 text-left font-semibold">Products</th>
-                <th className="px-6 py-3 text-left font-semibold">Certification</th>
-                <th className="px-6 py-3 text-left font-semibold">Status</th>
-                <th className="px-6 py-3 text-left font-semibold">Established</th>
-              </tr>
-            </thead>
-            <tbody>
-              {manufacturers.map((mfg) => (
-                <tr key={mfg.id} className="border-b hover:bg-gray-50">
-                  <td className="px-6 py-3 font-semibold">{mfg.name}</td>
-                  <td className="px-6 py-3">{mfg.country}</td>
-                  <td className="px-6 py-3">{mfg.products}</td>
-                  <td className="px-6 py-3"><span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">{mfg.certification}</span></td>
-                  <td className="px-6 py-3"><span className={`px-3 py-1 rounded-full text-xs font-semibold ${getStatusBadge(mfg.status)}`}>{mfg.status}</span></td>
-                  <td className="px-6 py-3">{mfg.established}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        {/* Grid View */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredManufacturers.map((mfr) => (
+            <div key={mfr.id} className="card-elevated">
+              <div className="flex items-start justify-between mb-4">
+                <div>
+                  <h3 className="text-sm font-semibold text-gray-900">{mfr.name}</h3>
+                  <div className="flex items-center gap-1 text-gray-500 text-xs mt-1">
+                    <MapPin size={16} />
+                    {mfr.country}
+                  </div>
+                </div>
+              <span className={`px-3 py-1 rounded-full text-xs font-semibold ${getStatusColor(mfr.status)}`}>
+                {mfr.status.charAt(0).toUpperCase() + mfr.status.slice(1)}
+              </span>
+            </div>
+
+            <div className="space-y-2 text-sm mb-4">
+              <p className="text-gray-600">
+                <span className="font-semibold">License #:</span> {mfr.licenseNumber}
+              </p>
+              <p className="text-gray-600">
+                <span className="font-semibold">Expires:</span> {formatDate(mfr.licenseExpiryDate)}
+              </p>
+            </div>
+
+            {/* Certifications */}
+            <div className="mb-4">
+              <p className="text-xs font-semibold text-gray-700 mb-2 flex items-center gap-1">
+                <Award size={14} /> Certifications
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {mfr.certifications.map((cert, idx) => (
+                  <span key={idx} className="bg-blue-50 text-blue-700 px-2 py-1 rounded text-xs">
+                    {cert}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Contact */}
+            <div className="border-t pt-4 space-y-2 text-sm">
+              <div className="flex items-center gap-2 text-gray-600">
+                <Phone size={16} />
+                <a href={`tel:${mfr.phone}`} className="text-blue-600 hover:underline">
+                  {mfr.phone}
+                </a>
+              </div>
+              <div className="flex items-center gap-2 text-gray-600">
+                <Globe size={16} />
+                <a href={`https://${mfr.website}`} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                  {mfr.website}
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
-    </main>
+
+      {filteredManufacturers.length === 0 && (
+        <div className="surface-panel">
+          <p className="text-center text-gray-500">No manufacturers found</p>
+        </div>
+      )}
+      </div>
+    </div>
   );
 }

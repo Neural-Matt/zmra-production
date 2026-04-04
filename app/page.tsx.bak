@@ -1,0 +1,523 @@
+"use client";
+
+import { useState, useMemo } from "react";
+import { formatDate } from "@/lib/dateUtils";
+import {
+  BarChart,
+  Bar,
+  LineChart,
+  Line,
+  PieChart,
+  Pie,
+  Cell,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from "recharts";
+import {
+  AlertTriangle,
+  CheckCircle,
+  Clock,
+  TrendingUp,
+  Activity,
+  Package,
+  Building2,
+  Pill,
+  ClipboardList,
+  Beaker,
+  AlertCircle,
+  CheckCircle2,
+} from "lucide-react";
+import {
+  medicines,
+  manufacturers,
+  batches,
+  inspections,
+  laboratoryTests,
+  safetyAlerts,
+  regulatoryApprovals,
+} from "@/lib/data";
+
+// KPI Card Component
+const KPICard = ({ icon: Icon, label, value, color, trend }: any) => (
+  <div className="bg-white rounded-lg shadow-md p-6 border-l-4 hover:shadow-lg transition-shadow" style={{ borderLeftColor: color }}>
+    <div className="flex items-start justify-between">
+      <div className="flex-1">
+        <p className="text-gray-600 text-sm font-semibold uppercase tracking-wide">{label}</p>
+        <p className="text-4xl font-bold mt-3 text-gray-900">{value}</p>
+        {trend && (
+          <div className="flex items-center gap-1 mt-2">
+            <TrendingUp size={16} className="text-green-600" />
+            <span className="text-sm text-green-600 font-medium">{trend}</span>
+          </div>
+        )}
+      </div>
+      <div className="p-3 rounded-lg" style={{ backgroundColor: `${color}15` }}>
+        <Icon size={32} style={{ color }} />
+      </div>
+    </div>
+  </div>
+);
+
+// Chart Data
+const approvalTrendData = [
+  { month: "January", approvals: 12, rejections: 2, underReview: 5 },
+  { month: "February", approvals: 15, rejections: 1, underReview: 4 },
+  { month: "March", approvals: 18, rejections: 3, underReview: 6 },
+  { month: "April", approvals: 22, rejections: 2, underReview: 3 },
+  { month: "May", approvals: 25, rejections: 3, underReview: 5 },
+  { month: "June", approvals: 28, rejections: 2, underReview: 2 },
+];
+
+const therapeuticCategoryData = [
+  { category: "Antibiotics", count: 8, color: "#3b82f6" },
+  { category: "Cardiovascular", count: 7, color: "#ef4444" },
+  { category: "Gastrointestinal", count: 5, color: "#f59e0b" },
+  { category: "Psychiatric", count: 3, color: "#8b5cf6" },
+  { category: "Analgesics", count: 4, color: "#10b981" },
+  { category: "Antiretrovirals", count: 4, color: "#06b6d4" },
+  { category: "Antimalarials", count: 4, color: "#ec4899" },
+  { category: "Other", count: 14, color: "#6b7280" },
+];
+
+export default function Dashboard() {
+  // Calculate KPIs
+  const kpis = useMemo(() => ({
+    totalMedicines: medicines.length,
+    underReview: medicines.filter((m) => m.status === "pending").length,
+    activeRecalls: safetyAlerts.filter((a) => a.status === "active").length,
+    totalManufacturers: manufacturers.filter((m) => m.status === "active").length,
+    inspectionsConducted: inspections.filter((i) => i.status === "completed").length,
+    batchesTracked: batches.length,
+  }), []);
+
+  // Manufacturer distribution by country
+  const manufacturerByCountry = useMemo(() => {
+    const data: Record<string, number> = {};
+    manufacturers.forEach((mfr) => {
+      data[mfr.country] = (data[mfr.country] || 0) + 1;
+    });
+    return Object.entries(data)
+      .map(([country, count], idx) => ({ name: country, value: count }))
+      .slice(0, 8);
+  }, []);
+
+  // Inspection compliance rate
+  const complianceStats = useMemo(() => {
+    const completed = inspections.filter((i) => i.status === "completed");
+    const noFindings = completed.filter((i) => i.findingsSeverity === "none").length;
+    return {
+      rate: completed.length > 0 ? Math.round((noFindings / completed.length) * 100) : 0,
+      total: completed.length,
+      compliant: noFindings,
+    };
+  }, []);
+
+  // Recent approvals
+  const recentApprovals = useMemo(() => {
+    return regulatoryApprovals
+      .filter((a) => a.status === "approved")
+      .sort((a, b) => new Date(b.approvalDate).getTime() - new Date(a.approvalDate).getTime())
+      .slice(0, 5);
+  }, []);
+
+  // Recent inspections
+  const recentInspections = useMemo(() => {
+    return inspections
+      .filter((i) => i.status === "completed")
+      .sort((a, b) => new Date(b.completionDate).getTime() - new Date(a.completionDate).getTime())
+      .slice(0, 5);
+  }, []);
+
+  // Recent lab tests
+  const recentLabTests = useMemo(() => {
+    return laboratoryTests
+      .sort((a, b) => new Date(b.completionDate).getTime() - new Date(a.completionDate).getTime())
+      .slice(0, 5);
+  }, []);
+
+  // Recent alerts
+  const recentAlerts = useMemo(() => {
+    return safetyAlerts
+      .sort((a, b) => new Date(b.issueDate).getTime() - new Date(a.issueDate).getTime())
+      .slice(0, 5);
+  }, []);
+
+  const COLORS = ["#3b82f6", "#ef4444", "#f59e0b", "#8b5cf6", "#10b981", "#06b6d4", "#ec4899", "#6b7280"];
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-gray-50 to-slate-50 p-6 lg:p-8">
+      <div className="space-y-8">
+        {/* Hero Summary Card */}
+        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 p-8 lg:p-12 shadow-lg-light">
+          {/* Animated background */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute inset-0 bg-gradient-to-r from-white to-transparent" />
+          </div>
+
+          <div className="relative z-10">
+            <h1 className="text-3xl lg:text-4xl font-bold text-white mb-2">Regulatory Dashboard</h1>
+            <p className="text-blue-100 mb-8">National Medicines Management System - Real-time oversight</p>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <div className="text-white">
+                <p className="text-4xl font-bold">{kpis.totalMedicines}</p>
+                <p className="text-sm text-blue-100 mt-1">Registered Medicines</p>
+              </div>
+              <div className="text-white">
+                <p className="text-4xl font-bold">{kpis.inspectionsConducted}</p>
+                <p className="text-sm text-blue-100 mt-1">Inspections Conducted</p>
+              </div>
+              <div className="text-white">
+                <p className="text-4xl font-bold">{kpis.batchesTracked}</p>
+                <p className="text-sm text-blue-100 mt-1">Batches Tracked</p>
+              </div>
+              <div className="text-white">
+                <p className="text-4xl font-bold">{laboratoryTests.length}</p>
+                <p className="text-sm text-blue-100 mt-1">Lab Samples Tested</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* KPI Cards Grid */}
+        <div>
+          <h2 className="text-xl font-bold text-gray-900 mb-4">Key Metrics</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
+            <KPICard
+              icon={Pill}
+              label="Registered"
+              value={kpis.totalMedicines}
+              color="#3b82f6"
+              trend="↑ 5 new"
+            />
+            <KPICard
+              icon={Clock}
+              label="Under Review"
+              value={kpis.underReview}
+              color="#f59e0b"
+              trend="15 days avg"
+            />
+            <KPICard
+              icon={AlertTriangle}
+              label="Active Recalls"
+              value={kpis.activeRecalls}
+              color="#ef4444"
+              trend="↓ 1 resolved"
+            />
+            <KPICard
+              icon={Building2}
+              label="Manufacturers"
+              value={kpis.totalManufacturers}
+              color="#8b5cf6"
+              trend="All active"
+            />
+            <KPICard
+              icon={ClipboardList}
+              label="Inspections"
+              value={kpis.inspectionsConducted}
+              color="#06b6d4"
+              trend="100% done"
+            />
+            <KPICard
+              icon={Package}
+              label="Batches"
+              value={kpis.batchesTracked}
+              color="#10b981"
+              trend="95% tracked"
+            />
+          </div>
+        </div>
+
+        {/* Charts Section */}
+        <div>
+          <h2 className="text-xl font-bold text-gray-900 mb-4">Analytics</h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Medicines by Therapeutic Class */}
+            <div className="card-base p-6 space-y-4">
+              <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
+                <Pill size={20} className="text-blue-600" />
+                Medicines by Class
+              </h3>
+              <ResponsiveContainer width="100%" height={300}>
+                <BarChart data={therapeuticCategoryData}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
+                  <XAxis dataKey="category" angle={-45} textAnchor="end" height={100} tick={{ fontSize: 12 }} />
+                  <YAxis tick={{ fontSize: 12 }} />
+                  <Tooltip contentStyle={{ backgroundColor: "#fff", border: "1px solid #e5e7eb", borderRadius: "8px" }} />
+                  <Bar dataKey="count" fill="#3b82f6" radius={[8, 8, 0, 0]} />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+
+            {/* Approval Trends */}
+            <div className="card-base p-6 space-y-4">
+              <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
+                <TrendingUp size={20} className="text-green-600" />
+                Approval Trends
+              </h3>
+              <ResponsiveContainer width="100%" height={300}>
+                <LineChart data={approvalTrendData}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
+                  <XAxis dataKey="month" tick={{ fontSize: 12 }} />
+                  <YAxis tick={{ fontSize: 12 }} />
+                  <Tooltip contentStyle={{ backgroundColor: "#fff", border: "1px solid #e5e7eb", borderRadius: "8px" }} />
+                  <Legend />
+                  <Line type="monotone" dataKey="approvals" stroke="#10b981" strokeWidth={3} dot={{ fill: "#10b981", r: 5 }} />
+                  <Line type="monotone" dataKey="rejections" stroke="#ef4444" strokeWidth={3} dot={{ fill: "#ef4444", r: 5 }} />
+                  <Line type="monotone" dataKey="underReview" stroke="#f59e0b" strokeWidth={3} dot={{ fill: "#f59e0b", r: 5 }} />
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+        </div>
+
+        {/* Manufacturer Distribution & Compliance */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Manufacturer Distribution */}
+          <div className="card-base p-6 space-y-4">
+            <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
+              <Building2 size={20} className="text-purple-600" />
+              Manufacturers by Country
+            </h3>
+            <ResponsiveContainer width="100%" height={300}>
+              <PieChart>
+                <Pie data={manufacturerByCountry} cx="50%" cy="50%" labelLine={true} label={({ name, value }) => `${name}: ${value}`} outerRadius={100} fill="#8884d8" dataKey="value">
+                  {manufacturerByCountry.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                  ))}
+                </Pie>
+              <Tooltip
+                contentStyle={{
+                  backgroundColor: "#fff",
+                  border: "1px solid #e5e7eb",
+                  borderRadius: "8px",
+                }}
+              />
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
+
+        {/* Inspection Compliance Rate */}
+        <div className="bg-white rounded-lg shadow p-6 hover:shadow-lg transition-all duration-200 border border-gray-100">
+          <h2 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+            <CheckCircle size={20} className="text-cyan-600" />
+            Inspection Compliance Rate
+          </h2>
+          <div className="flex flex-col items-center justify-center h-80">
+            <div className="relative w-48 h-48 mb-6">
+              <svg className="w-full h-full transform -rotate-90">
+                <circle
+                  cx="96"
+                  cy="96"
+                  r="85"
+                  fill="none"
+                  stroke="#e5e7eb"
+                  strokeWidth="12"
+                />
+                <circle
+                  cx="96"
+                  cy="96"
+                  r="85"
+                  fill="none"
+                  stroke="#10b981"
+                  strokeWidth="12"
+                  strokeDasharray={`${(complianceStats.rate / 100) * 534.07} 534.07`}
+                  strokeLinecap="round"
+                />
+              </svg>
+              <div className="absolute inset-0 flex flex-col items-center justify-center">
+                <p className="text-5xl font-bold text-gray-900">{complianceStats.rate}%</p>
+                <p className="text-sm text-gray-500 mt-1">Compliant</p>
+              </div>
+            </div>
+            <div className="text-center">
+              <p className="text-gray-700 font-semibold">
+                {complianceStats.compliant} of {complianceStats.total} inspections
+              </p>
+              <p className="text-gray-600 text-sm mt-1">
+                No critical findings
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Recent Activity Tables */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+        {/* Recent Approvals */}
+        <div className="bg-white rounded-lg shadow p-6 hover:shadow-lg transition-all duration-200 border border-gray-100">
+          <h2 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+            <CheckCircle2 size={20} className="text-green-600" />
+            Latest Medicine Approvals
+          </h2>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-gray-200">
+                  <th className="text-left py-3 px-3 font-semibold text-gray-600">Medicine</th>
+                  <th className="text-left py-3 px-3 font-semibold text-gray-600">Manufacturer</th>
+                  <th className="text-left py-3 px-3 font-semibold text-gray-600">Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                {recentApprovals.map((approval) => (
+                  <tr key={approval.id} className="border-b border-gray-100 hover:bg-gray-50 transition">
+                    <td className="py-3 px-3 font-medium text-gray-900 max-w-xs truncate">
+                      {approval.medicineName}
+                    </td>
+                    <td className="py-3 px-3 text-gray-600 max-w-xs truncate">
+                      {approval.manufacturerName.split(" ")[0]}
+                    </td>
+                    <td className="py-3 px-3 text-gray-500 text-xs">
+                      {formatDate(approval.approvalDate)}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* Recent Inspection Reports */}
+        <div className="bg-white rounded-lg shadow p-6 hover:shadow-lg transition-all duration-200 border border-gray-100">
+          <h2 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+            <ClipboardList size={20} className="text-blue-600" />
+            Inspection Reports Submitted
+          </h2>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-gray-200">
+                  <th className="text-left py-3 px-3 font-semibold text-gray-600">Manufacturer</th>
+                  <th className="text-left py-3 px-3 font-semibold text-gray-600">Findings</th>
+                  <th className="text-left py-3 px-3 font-semibold text-gray-600">Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                {recentInspections.map((inspection) => (
+                  <tr key={inspection.id} className="border-b border-gray-100 hover:bg-gray-50 transition">
+                    <td className="py-3 px-3 font-medium text-gray-900 max-w-xs truncate">
+                      {inspection.facilityName.split(" ")[0]}
+                    </td>
+                    <td className="py-3 px-3">
+                      <span
+                        className={`px-2 py-1 rounded text-xs font-semibold ${
+                          inspection.findingsSeverity === "none"
+                            ? "bg-green-100 text-green-700"
+                            : inspection.findingsSeverity === "critical"
+                            ? "bg-red-100 text-red-700"
+                            : "bg-yellow-100 text-yellow-700"
+                        }`}
+                      >
+                        {inspection.findingsSeverity.toUpperCase()}
+                      </span>
+                    </td>
+                    <td className="py-3 px-3 text-gray-500 text-xs">
+                      {formatDate(inspection.completionDate)}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Recent Lab Tests */}
+        <div className="bg-white rounded-lg shadow p-6 hover:shadow-lg transition-all duration-200 border border-gray-100">
+          <h2 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+            <Beaker size={20} className="text-orange-600" />
+            Laboratory Test Results
+          </h2>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-gray-200">
+                  <th className="text-left py-3 px-3 font-semibold text-gray-600">Test</th>
+                  <th className="text-left py-3 px-3 font-semibold text-gray-600">Result</th>
+                  <th className="text-left py-3 px-3 font-semibold text-gray-600">Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                {recentLabTests.map((test) => (
+                  <tr key={test.id} className="border-b border-gray-100 hover:bg-gray-50 transition">
+                    <td className="py-3 px-3 font-medium text-gray-900 max-w-xs truncate">
+                      {test.testType}
+                    </td>
+                    <td className="py-3 px-3">
+                      <span
+                        className={`px-2 py-1 rounded text-xs font-semibold ${
+                          test.status === "passed"
+                            ? "bg-green-100 text-green-700"
+                            : test.status === "failed"
+                            ? "bg-red-100 text-red-700"
+                            : "bg-gray-100 text-gray-700"
+                        }`}
+                      >
+                        {test.status.toUpperCase()}
+                      </span>
+                    </td>
+                    <td className="py-3 px-3 text-gray-500 text-xs">
+                      {new Date(test.completionDate).toLocaleDateString()}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* Recent Safety Alerts */}
+        <div className="bg-white rounded-lg shadow p-6 hover:shadow-lg transition-all duration-200 border border-gray-100">
+          <h2 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+            <AlertCircle size={20} className="text-red-600" />
+            Safety Alerts Issued
+          </h2>
+          <div className="space-y-3 max-h-96 overflow-y-auto">
+            {recentAlerts.map((alert) => (
+              <div
+                key={alert.id}
+                className={`p-3 rounded-lg border-l-4 ${
+                  alert.recallLevel === "Class I"
+                    ? "bg-red-50 border-red-400"
+                    : alert.recallLevel === "Class II"
+                    ? "bg-orange-50 border-orange-400"
+                    : alert.recallLevel === "Class III"
+                    ? "bg-yellow-50 border-yellow-400"
+                    : "bg-gray-50 border-gray-400"
+                }`}
+              >
+                <div className="flex items-start justify-between">
+                  <div className="flex-1">
+                    <p className="font-semibold text-gray-900 text-sm">{alert.medicineName}</p>
+                    <p className="text-xs text-gray-600 mt-1">{alert.details.substring(0, 50)}...</p>
+                  </div>
+                  <span
+                    className={`text-xs font-semibold px-2 py-1 rounded whitespace-nowrap ml-2 ${
+                      alert.recallLevel === "Class I"
+                        ? "bg-red-200 text-red-700"
+                        : alert.recallLevel === "Class II"
+                        ? "bg-orange-200 text-orange-700"
+                        : alert.recallLevel === "Class III"
+                        ? "bg-yellow-200 text-yellow-700"
+                        : "bg-gray-200 text-gray-700"
+                    `}
+                  >
+                    {alert.recallLevel}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+  );
+}
